@@ -7,73 +7,73 @@ dependencies:
 
 devDependencies:
   '@skeletonlabs/skeleton':
-    specifier: ^1.6.1
-    version: 1.6.1
+    specifier: ^1.6.2
+    version: 1.6.2
   '@sveltejs/adapter-auto':
-    specifier: ^1.0.0
-    version: 1.0.3(@sveltejs/kit@1.18.0)
+    specifier: ^1.0.3
+    version: 1.0.3(@sveltejs/kit@1.19.0)
   '@sveltejs/kit':
-    specifier: ^1.15.2
-    version: 1.18.0(svelte@3.59.1)(vite@4.3.8)
+    specifier: ^1.19.0
+    version: 1.19.0(svelte@3.59.1)(vite@4.3.8)
   '@tailwindcss/forms':
-    specifier: ^0.5.2
+    specifier: ^0.5.3
     version: 0.5.3(tailwindcss@3.3.2)
   '@tailwindcss/typography':
-    specifier: ^0.5.3
+    specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.2)
   '@typescript-eslint/eslint-plugin':
-    specifier: ^5.45.0
+    specifier: ^5.59.7
     version: 5.59.7(@typescript-eslint/parser@5.59.7)(eslint@8.41.0)(typescript@4.9.5)
   '@typescript-eslint/parser':
-    specifier: ^5.45.0
+    specifier: ^5.59.7
     version: 5.59.7(eslint@8.41.0)(typescript@4.9.5)
   autoprefixer:
-    specifier: ^10.4.7
+    specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.23)
   daisyui:
-    specifier: ^2.18.1
+    specifier: ^2.51.6
     version: 2.51.6(autoprefixer@10.4.14)(postcss@8.4.23)
   eslint:
-    specifier: ^8.28.0
+    specifier: ^8.41.0
     version: 8.41.0
   eslint-config-prettier:
-    specifier: ^8.5.0
+    specifier: ^8.8.0
     version: 8.8.0(eslint@8.41.0)
   eslint-plugin-svelte3:
     specifier: ^4.0.0
     version: 4.0.0(eslint@8.41.0)(svelte@3.59.1)
   postcss:
-    specifier: ^8.4.14
+    specifier: ^8.4.23
     version: 8.4.23
   postcss-load-config:
     specifier: ^4.0.1
     version: 4.0.1(postcss@8.4.23)
   prettier:
-    specifier: ^2.8.0
+    specifier: ^2.8.8
     version: 2.8.8
   prettier-plugin-svelte:
-    specifier: ^2.8.1
+    specifier: ^2.10.0
     version: 2.10.0(prettier@2.8.8)(svelte@3.59.1)
   svelte:
-    specifier: ^3.54.0
+    specifier: ^3.59.1
     version: 3.59.1
   svelte-check:
-    specifier: ^2.9.2
+    specifier: ^2.10.3
     version: 2.10.3(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.59.1)
   svelte-preprocess:
     specifier: ^4.10.7
     version: 4.10.7(postcss-load-config@4.0.1)(postcss@8.4.23)(svelte@3.59.1)(typescript@4.9.5)
   tailwindcss:
-    specifier: ^3.1.5
+    specifier: ^3.3.2
     version: 3.3.2
   tslib:
-    specifier: ^2.4.1
+    specifier: ^2.5.2
     version: 2.5.2
   typescript:
-    specifier: ^4.9.3
+    specifier: ^4.9.5
     version: 4.9.5
   vite:
-    specifier: ^4.0.0
+    specifier: ^4.3.8
     version: 4.3.8
 
 packages:
@@ -397,24 +397,24 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
-  /@skeletonlabs/skeleton@1.6.1:
-    resolution: {integrity: sha512-W9I8uyGyZg71oP8vGl0P1pRmMXJYQOuGSRoaixsKM7kiUlkVReEUpkcBZh8L8LwjlTs81cyrIsZFNthiZuueFQ==}
+  /@skeletonlabs/skeleton@1.6.2:
+    resolution: {integrity: sha512-Xp+gCAgxEfzwa6lUzeFHhIiTzPe7wKAWZJzo0UnNJfgMCuJy4Txu2bDXz6ZCyu9+B6+i8lShFPxPuENqTfP14w==}
     dependencies:
       esm-env: 1.0.0
       svelte: 3.58.0
     dev: true
 
-  /@sveltejs/adapter-auto@1.0.3(@sveltejs/kit@1.18.0):
+  /@sveltejs/adapter-auto@1.0.3(@sveltejs/kit@1.19.0):
     resolution: {integrity: sha512-hc7O12YQqvZ1CD4fo1gMJuPzBZvuoG5kwxb2RRoz4fVoB8B2vuPO2cY751Ln0G6T/HMrAf8kCqw6Pg+wbxcstw==}
     peerDependencies:
       '@sveltejs/kit': ^1.0.0
     dependencies:
-      '@sveltejs/kit': 1.18.0(svelte@3.59.1)(vite@4.3.8)
+      '@sveltejs/kit': 1.19.0(svelte@3.59.1)(vite@4.3.8)
       import-meta-resolve: 2.2.2
     dev: true
 
-  /@sveltejs/kit@1.18.0(svelte@3.59.1)(vite@4.3.8):
-    resolution: {integrity: sha512-QE5X9gCG34khrO6j01ZbRXtVx+yyUNe8PmVPeG0M+I8eyFejqYMEhD1JtjCrLzpd4KukvuO8bL35M1VWmPM7hQ==}
+  /@sveltejs/kit@1.19.0(svelte@3.59.1)(vite@4.3.8):
+    resolution: {integrity: sha512-39fHvYvUQL3bCdV6Ed9MRIESO6ceM/MRNxAloQin+Qs9DfiM53vhUJBWtbwWAvRR/nM6isWnsbContjE/2/JxQ==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -502,8 +502,8 @@ packages:
     resolution: {integrity: sha512-COUnqfB2+ckwXXSFInsFdOAWQzCCx+a5hq2ruyj+Vjund94RJQd4LG2u9hnvJrTgunKAaax7ancBYlDrNYxA0g==}
     dev: true
 
-  /@types/json-schema@7.0.11:
-    resolution: {integrity: sha512-wOuvG1SN4Us4rez+tylwwwCV1psiNVOkJeM3AUWUNWg/jDQY2+HE/444y5gc+jBmRqASOm2Oeh5c1axHobwRKQ==}
+  /@types/json-schema@7.0.12:
+    resolution: {integrity: sha512-Hr5Jfhc9eYOQNPYO5WLDq/n4jqijdHNlDXjuAQkkt+mWdQR+XJToOHrsD4cPaMXpn6KO7y2+wM8AZEs8VpBLVA==}
     dev: true
 
   /@types/pug@2.0.6:
@@ -630,7 +630,7 @@ packages:
       eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.41.0)
-      '@types/json-schema': 7.0.11
+      '@types/json-schema': 7.0.12
       '@types/semver': 7.5.0
       '@typescript-eslint/scope-manager': 5.59.7
       '@typescript-eslint/types': 5.59.7
@@ -756,7 +756,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001489
-      electron-to-chromium: 1.4.405
+      electron-to-chromium: 1.4.408
       node-releases: 2.0.12
       update-browserslist-db: 1.0.11(browserslist@4.21.5)
     dev: true
@@ -939,8 +939,8 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /electron-to-chromium@1.4.405:
-    resolution: {integrity: sha512-JdDgnwU69FMZURoesf9gNOej2Cms1XJFfLk24y1IBtnAdhTcJY/mXnokmpmxHN59PcykBP4bgUU98vLY44Lhuw==}
+  /electron-to-chromium@1.4.408:
+    resolution: {integrity: sha512-vjeaj0u/UYnzA/CIdGXzzcxRLCqRwREYc9YfaWInjIEr7/XPttZ6ShpyqapchEy0S2r6LpLjDBTnNj7ZxnxJKg==}
     dev: true
 
   /es6-promise@3.3.1:
