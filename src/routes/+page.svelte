@@ -1,36 +1,23 @@
+<!-- src/routes/+page.svelte -->
 <script lang="ts">
-	import { applyAction, enhance } from '$app/forms';
-	import { currentUser, pb } from '$lib/pocketbase';
+	import { Auth } from '@supabase/auth-ui-svelte';
+	import { ThemeSupa } from '@supabase/auth-ui-shared';
+
+	export let data;
 </script>
 
-<div class="bg-neutral text-neutral-content">
-	<div class="max-w-xl mx-auto navbar">
-		<div class="navbar-start">
-			<a href="/" class="btn btn-ghost text-xl">PB + SK</a>
-		</div>
-		<div class="navbar-end">
-			<ul class="menu menu-horizontal">
-				{#if $currentUser}
-					<li><a href="/">{$currentUser.email}</a></li>
-					<li>
-						<form
-							method="POST"
-							action="/logout"
-							use:enhance={() => {
-								return async ({ result }) => {
-									pb.authStore.clear();
-									await applyAction(result);
-								};
-							}}
-						>
-							<button>Log out</button>
-						</form>
-					</li>
-				{:else}
-					<li><a href="/login">Log in</a></li>
-					<li><a href="/register">Register</a></li>
-				{/if}
-			</ul>
-		</div>
+<svelte:head>
+	<title>User Management</title>
+</svelte:head>
+
+<div class="row flex-center flex">
+	<div class="col-6 form-widget">
+		<Auth
+			supabaseClient={data.supabase}
+			redirectTo={`${data.url}/home`}
+			showLinks={true}
+			appearance={{ theme: ThemeSupa, style: { input: 'color: #fff' } }}
+		/>
 	</div>
 </div>
+
