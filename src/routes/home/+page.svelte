@@ -8,13 +8,20 @@
 		Table,
 		tableMapperValues
 	} from '@skeletonlabs/skeleton';
-	import type { ModalSettings, ModalComponent, TableSource } from '@skeletonlabs/skeleton';
+	import type {
+		ConicStop,
+		ModalSettings,
+		ModalComponent,
+		TableSource
+	} from '@skeletonlabs/skeleton';
 	import ModalForm from '$lib/modals/ModalForm.svelte';
 
-  export let data;
+	export let data;
 	export let form;
 
-	let { session, supabase, profile } = data;
+	let { session, supabase, profile, transactions } = data;
+
+	let ammount: number = profile?.amount ?? 0.0;
 
 	const conicStops: ConicStop[] = [
 		{ label: 'One', color: 'rgba(255,255,255,1)', start: 0, end: 10 },
@@ -40,20 +47,12 @@
 		modalStore.trigger(modal);
 	}
 
-	const sourceData = [
-		{ position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-		{ position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-		{ position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-		{ position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-		{ position: 5, name: 'Boron', weight: 10.811, symbol: 'B' }
-	];
-
 	const tableSimple: TableSource = {
-		head: ['Transaction', 'Tag', 'Amount'],
+		head: ['Transaction', 'Category', 'Amount'],
 		// The data visibly shown in your table body UI.
-		body: tableMapperValues(sourceData, ['name', 'symbol', 'weight']),
+		body: tableMapperValues(transactions, ['name', 'category', 'amount']),
 		// Optional: The data returned when interactive is enabled and a row is clicked.
-		meta: tableMapperValues(sourceData, ['position', 'name', 'symbol', 'weight'])
+		meta: tableMapperValues(transactions, ['name', 'category', 'amount'])
 	};
 </script>
 
@@ -75,7 +74,7 @@
 		</div>
 		<div class="card card-hover p-4 ml-4 w-2/3 flex">
 			<div class="mx-auto my-auto">
-				<h2 class="text-4xl">Current Balance: $0</h2>
+				<h2 class="text-4xl">Current Balance: ${ammount}</h2>
 			</div>
 		</div>
 	</div>
@@ -86,9 +85,9 @@
 				<button
 					on:click={modalPrompt}
 					class="mr-0 ml-auto text-white btn bg-gradient-to-br variant-gradient-primary-secondary"
-					>
-            Add Transaction
-          </button>
+				>
+					Add Transaction
+				</button>
 			</div>
 			<div class="shadow-black mt-4">
 				<Table interactive={true} source={tableSimple} />

@@ -6,13 +6,6 @@
 	// Stores
 	import { modalStore } from '@skeletonlabs/skeleton';
 
-	// Form Data
-	const formData = {
-		name: 'Jane Doe',
-		tel: '214-555-1234',
-		email: 'jdoe@email.com'
-	};
-
 	// We've created a custom submit function to pass the response and close the modal.
 	function onFormSubmit(): void {
 		if ($modalStore[0].response) $modalStore[0].response(formData);
@@ -22,39 +15,31 @@
 	// Base Classes
 	const cBase = 'card p-4 w-modal shadow-xl space-y-4';
 	const cHeader = 'text-2xl font-bold';
-	const cForm = 'border border-surface-500 p-4 space-y-4 rounded-container-token';
+	const cForm = 'border-surface-500 p-4 space-y-4 rounded-container-token';
 </script>
 
 <!-- @component This example creates a simple form modal. -->
 
 {#if $modalStore[0]}
 	<div class="modal-example-form {cBase}">
-		<header class={cHeader}>{$modalStore[0].title ?? '(title missing)'}</header>
-		<article>{$modalStore[0].body ?? '(body missing)'}</article>
+		<header class={cHeader}>Add Transaction</header>
 		<!-- Enable for debugging: -->
 		<form class="modal-form {cForm}">
 			<label class="label">
-				<span>Transaction</span>
-				<input class="input" type="text" bind:value={formData.name} placeholder="Enter name..." />
+				<span>Transaction Name</span>
+				<input class="input" type="text" placeholder="Enter name..." />
 			</label>
 			<label class="label">
-				<span>Phone Number</span>
+				<span>Category</span>
 				<select class="select">
-					<option value="1">Option 1</option>
-					<option value="2">Option 2</option>
-					<option value="3">Option 3</option>
-					<option value="4">Option 4</option>
-					<option value="5">Option 5</option>
+					<option value="1">Food</option>
+					<option value="2">Shopping</option>
+					<option value="3">Other</option>
 				</select>
 			</label>
 			<label class="label">
 				<span>Amount</span>
-				<input
-					class="input"
-					type="email"
-					bind:value={formData.email}
-					placeholder="Enter email address..."
-				/>
+				<input class="input" type="number" placeholder="Enter the ammount.." />
 			</label>
 		</form>
 		<!-- prettier-ignore -->
