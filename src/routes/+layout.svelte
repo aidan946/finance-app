@@ -1,10 +1,21 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
-  import '@skeletonlabs/skeleton/themes/theme-skeleton.css';
-	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	import '../app.postcss';
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import { initializeStores, Modal } from '@skeletonlabs/skeleton';
+	import type { ModalComponent } from '@skeletonlabs/skeleton';
+	import ModalForm from '$lib/modals/ModalForm.svelte';
+
+	initializeStores();
+
+	const modalComponentRegistry: Record<string, ModalComponent> = {
+		modalForm: {
+			ref: ModalForm,
+			props: { background: 'bg-red-500' },
+			slot: '<p>Skeleton</p>'
+		}
+	};
 
 	export let data;
 
@@ -26,5 +37,6 @@
 </svelte:head>
 
 <div class="max-w-full mx-auto">
+	<Modal components={modalComponentRegistry} />
 	<slot />
 </div>

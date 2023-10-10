@@ -3,8 +3,20 @@
 	/** Exposes parent props to this component. */
 	export let parent: any;
 
-	// Stores
-	import { modalStore } from '@skeletonlabs/skeleton';
+	import { getModalStore } from '@skeletonlabs/skeleton';
+	const modalStore = getModalStore();
+
+	const categories = async ({ locals: { supabase } }) => {
+		const { data: categories } = await supabase.from('categories').select('name');
+		console.log(categories);
+		return categories;
+	};
+
+	const formData = {
+		name: 'Jane Doe',
+		tel: '214-555-1234',
+		email: 'jdoe@email.com'
+	};
 
 	// We've created a custom submit function to pass the response and close the modal.
 	function onFormSubmit(): void {

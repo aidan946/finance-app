@@ -3,18 +3,13 @@
 		AppBar,
 		Avatar,
 		ConicGradient,
-		Modal,
-		modalStore,
+		getModalStore,
 		Table,
 		tableMapperValues
 	} from '@skeletonlabs/skeleton';
-	import type {
-		ConicStop,
-		ModalSettings,
-		ModalComponent,
-		TableSource
-	} from '@skeletonlabs/skeleton';
-	import ModalForm from '$lib/modals/ModalForm.svelte';
+	import type { ConicStop, ModalSettings, TableSource } from '@skeletonlabs/skeleton';
+
+	const modalStore = getModalStore();
 
 	export let data;
 	export let form;
@@ -29,29 +24,17 @@
 		{ label: 'Three', color: 'rgba(255,255,255,0.25)', start: 35, end: 100 }
 	];
 
-	const modalComponent: ModalComponent = {
-		// Pass a reference to your custom component
-		ref: ModalForm,
-		// Add the component properties as key/value pairs
-		props: { background: 'bg-red-500' },
-		// Provide a template literal for the default component slot
-		slot: '<p>Skeleton</p>'
-	};
-
 	function modalPrompt(): void {
 		const modal: ModalSettings = {
 			type: 'component',
-			// Pass the component directly:
-			component: modalComponent
+			component: 'modalForm'
 		};
 		modalStore.trigger(modal);
 	}
 
 	const tableSimple: TableSource = {
 		head: ['Transaction', 'Category', 'Amount'],
-		// The data visibly shown in your table body UI.
 		body: tableMapperValues(transactions, ['name', 'category', 'amount']),
-		// Optional: The data returned when interactive is enabled and a row is clicked.
 		meta: tableMapperValues(transactions, ['name', 'category', 'amount'])
 	};
 </script>
@@ -59,7 +42,7 @@
 {#if session.user}
 	<AppBar gridColumns="grid-cols-3" slotDefault="place-self-center" slotTrail="place-content-end">
 		<svelte:fragment slot="lead">
-			<a>Button for Pages</a>
+			<p>Button for Pages</p>
 		</svelte:fragment>
 		<h2 class="text-xl">Save It!</h2>
 		<svelte:fragment slot="trail">
@@ -94,5 +77,4 @@
 			</div>
 		</div>
 	</div>
-	<Modal />
 {/if}
